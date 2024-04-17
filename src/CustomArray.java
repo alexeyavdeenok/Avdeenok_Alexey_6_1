@@ -5,9 +5,11 @@ public class CustomArray<T> {
     private int length;
 
     public CustomArray() {
-        
+        setStartIndex(0);
+        setEndIndex(0);
+        this.length = 0;
+        this.array = (T[]) new Object[this.length];
     }
-
     public CustomArray(int startIndex, int endIndex) {
         setStartIndex(startIndex);
         setEndIndex(endIndex);
@@ -21,6 +23,9 @@ public class CustomArray<T> {
     public void changeStartIndex(int index){
         setStartIndex(index);
         setEndIndex(length - 1 + index);
+    }
+    public int getLength() {
+        return length;
     }
     public int getStartIndex() {
         return startIndex;
