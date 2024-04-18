@@ -19,10 +19,10 @@ public class CustomArray<T> {
 
   /**
    * Конструктор с параметрами
+   *
    * @param startIndex начальный индекс массива
    * @param endIndex конечный индекс массива
-   * @throws CustomException исключение при попытке создать
-   * массив недопустимой длины
+   * @throws CustomException исключение при попытке создать массив недопустимой длины
    */
   public CustomArray(int startIndex, int endIndex) throws CustomException {
     setStartIndex(startIndex);
@@ -36,8 +36,9 @@ public class CustomArray<T> {
   }
 
   /**
-   * Метод для изменения начального индекса,
-   * метод также изменяет конечный индекс, сохраняя изначальную длину массива
+   * Метод для изменения начального индекса, метод также изменяет конечный индекс, сохраняя
+   * изначальную длину массива
+   *
    * @param index новый начальный индекс
    */
   public void changeStartIndex(int index) {
@@ -47,6 +48,7 @@ public class CustomArray<T> {
 
   /**
    * Метод для получения начального индекса
+   *
    * @return начальный индекс массива
    */
   public int getStartIndex() {
@@ -55,6 +57,7 @@ public class CustomArray<T> {
 
   /**
    * Метод устанавливает начальный индекс
+   *
    * @param index
    */
   public void setStartIndex(int index) {
@@ -62,8 +65,8 @@ public class CustomArray<T> {
   }
 
   /**
-   * Метод для изменения конечного индекса,
-   * также изменяет начальный индекс, сохраняя длину массива
+   * Метод для изменения конечного индекса, также изменяет начальный индекс, сохраняя длину массива
+   *
    * @param index новый конечный индекс
    */
   public void changeEndIndex(int index) {
@@ -73,6 +76,7 @@ public class CustomArray<T> {
 
   /**
    * Метод возвращает конечный индекс
+   *
    * @return конечный индекс
    */
   public int getEndIndex() {
@@ -81,6 +85,7 @@ public class CustomArray<T> {
 
   /**
    * Метод устанавливает конечный индекс
+   *
    * @param index конечный индекс
    */
   public void setEndIndex(int index) {
@@ -89,10 +94,10 @@ public class CustomArray<T> {
 
   /**
    * Метод для изменения элемента по его индексу
+   *
    * @param index индекс элемента
    * @param value новое значение элемента
-   * @throws CustomException исключение,
-   * возникающее при неверно указанном индексе
+   * @throws CustomException исключение, возникающее при неверно указанном индексе
    */
   public void setValue(int index, T value) throws CustomException {
     try {
@@ -104,6 +109,7 @@ public class CustomArray<T> {
 
   /**
    * Метод возвращает элемент по индексу
+   *
    * @param index индекс элемента
    * @return элемент
    * @throws CustomException исключение при неверном индексе
@@ -116,9 +122,7 @@ public class CustomArray<T> {
     }
   }
 
-  /**
-   * Метод инвертирует массив
-   */
+  /** Метод инвертирует массив */
   public void reverse() {
     T temp;
     for (int i = 0; i < length / 2; i++) {
@@ -130,6 +134,7 @@ public class CustomArray<T> {
 
   /**
    * Метод для конкатенации массивов
+   *
    * @param array2 массив который, будет сложен с первым
    */
   public void sumMas(T[] array2) {
@@ -143,10 +148,10 @@ public class CustomArray<T> {
 
   /**
    * Метод возвращает индекс элемента по его значению
+   *
    * @param elem элемент
    * @return индекс элемента
-   * @throws CustomException Исключение возникает если в массиве нет
-   * переданного элемента
+   * @throws CustomException Исключение возникает если в массиве нет переданного элемента
    */
   public int indexOfElem(T elem) throws CustomException {
     if (elem.getClass() == String.class) {
@@ -167,11 +172,12 @@ public class CustomArray<T> {
 
   /**
    * Метод для добавления последовательности после индекса
+   *
    * @param index индекс
    * @param sequence последовательность
    * @throws CustomException исключение при неверном индексе
    */
-  public void addSequence(int index, T[] sequence) throws CustomException{
+  public void addSequence(int index, T[] sequence) throws CustomException {
     if (index < startIndex || index > endIndex) {
       throw new CustomException("Индекс вне допустимого диапазона");
     }
@@ -189,7 +195,12 @@ public class CustomArray<T> {
     System.arraycopy(sequence, 0, newArray, index - startIndex + 1, sequenceLength);
 
     // Копируем оставшиеся элементы из исходного массива
-    System.arraycopy(array, index - startIndex + 1, newArray, index - startIndex + 1 + sequenceLength, length - (index - startIndex + 1));
+    System.arraycopy(
+        array,
+        index - startIndex + 1,
+        newArray,
+        index - startIndex + 1 + sequenceLength,
+        length - (index - startIndex + 1));
 
     // Устанавливаем новый массив, обновляем длину и конечный индекс
     this.array = newArray;
@@ -199,12 +210,13 @@ public class CustomArray<T> {
 
   /**
    * Метод для вывода содержимого массива
+   *
    * @param start начальный индекс
    * @param end конечный индекс
    * @throws CustomException искюлчение при неверном индексе
    */
   public void printArray(int start, int end) throws CustomException {
-    if (start < startIndex || end > endIndex){
+    if (start < startIndex || end > endIndex) {
       throw new CustomException("Индекс за пределами массива");
     }
     System.out.println("Начальный индекс: " + start + " Конечный индекс: " + end);
