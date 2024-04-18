@@ -39,6 +39,7 @@ public class Main {
                       currentList.setValue(index2, input.nextInt());
                       System.out.println("Элемент изменен");
                     } else {
+                      input.nextLine();
                       currentList.setValue(index2, input.nextLine());
                       System.out.println("Элемент изменен");
                     }
