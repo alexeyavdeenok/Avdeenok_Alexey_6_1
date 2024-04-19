@@ -13,7 +13,7 @@ public class CustomArray<T> {
   public CustomArray() { // Конструктор по умолчанию
     setStartIndex(0);
     setEndIndex(0);
-    this.length = 0;
+    this.length = endIndex - startIndex + 1;
     this.array = (T[]) new Object[this.length];
   }
 
